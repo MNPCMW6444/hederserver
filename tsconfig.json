@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "./built"
+  },
+  "include": ["src/**/*.ts", "./typings/**/*.d.ts"],
+  "exclude": ["node_modules", "src/routers/plaid.js", "src/**/*.js"],
+  "paths": {
+    "src/*": ["src/*"]
+  }
+}
