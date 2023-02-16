@@ -44,9 +44,7 @@ router.get("/michael", async (req, res) => {
     }
     catch (err) {
         console.error(err);
-        res
-            .status(500)
-            .json({ serverError: "Unexpected error occurred in the server" });
+        res.json({ yoad: false, dsfds: "gfssdf" });
     }
 });
 router.post("/open", async (req, res) => {
