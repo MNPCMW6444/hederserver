@@ -36,4 +36,7 @@ router.get("/getall", async (req, res) => {
             .json({ serverError: "Unexpected error occurred in the server" });
     }
 });
+router.get("/michael", async (req, res) => {
+    res.json({ yoad: true, dsfds: "gfssdf" });
+});
 exports.default = router;

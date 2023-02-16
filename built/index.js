@@ -76,12 +76,7 @@ const connectToDBs = () => {
 connectToDBs();
 app.use((0, heroku_ssl_redirect_1.default)());
 app.use(express_1.default.json());
-app.use((0, cors_1.default)({
-    origin: process.env.NODE_ENV === "development"
-        ? ["http://localhost:5665", "http://localhost:3000"]
-        : ["https://app.neurobica.online", "https://hedermmm.netlify.app"],
-    credentials: true,
-}));
+app.use((0, cors_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.listen(port, () => console.log(`Server started on port: ${port}`));
 app.use((req, res, next) => {
