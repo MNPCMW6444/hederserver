@@ -34,4 +34,15 @@ router.get("/getall", async (req, res) => {
   }
 });
 
+router.get("/michael", async (req, res) => {
+  try {
+    res.json({ yoad: true });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ serverError: "Unexpected error occurred in the server" });
+  }
+});
+
 export default router;
