@@ -87,15 +87,7 @@ connectToDBs();
 app.use(sslRedirect());
 app.use(express.json());
 
-app.use(
-  cors({
-    origin:
-      process.env.NODE_ENV === "development"
-        ? ["http://localhost:5665", "http://localhost:3000"]
-        : ["https://app.neurobica.online", "https://hedermmm.netlify.app"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(cookieParser());
 
