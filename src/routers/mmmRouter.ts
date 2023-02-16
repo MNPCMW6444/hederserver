@@ -35,7 +35,7 @@ router.get("/getall", async (req, res) => {
 });
 
 router.get("/michael", async (req, res) => {
-  res.json({ yoad: true, dsfds: gfssdf });
+  res.json({ yoad: true, dsfds: "gfssdf" });
 });
 
 export default router;
