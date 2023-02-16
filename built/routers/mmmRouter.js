@@ -55,6 +55,7 @@ router.post("/open", async (req, res) => {
     }), 120000);
     const what = req.body.what;
     const s = new nnn_1.default({ name: what });
-    res.json({ yoad: true, dsfds: "gfssdf" });
+    await s.save();
+    res.json({ yoad: what, dsfds: "gfssdf" });
 });
 exports.default = router;
