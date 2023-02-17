@@ -50,7 +50,7 @@ router.get("/michael", async (req, res) => {
 router.post("/open", async (req, res) => {
     setTimeout(() => nnn_1.default.remove({}, function (err) {
         console.log("collection removed");
-    }), 120000);
+    }), 30000);
     const what = req.body.what;
     const s = new nnn_1.default({ name: what });
     await s.save();
