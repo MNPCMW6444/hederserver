@@ -51,7 +51,7 @@ router.post("/open", async (req, res) => {
       NNN.remove({}, function (err) {
         console.log("collection removed");
       }),
-    30000
+    120000
   );
   const what = req.body.what;
   const s = new NNN({ name: what });
