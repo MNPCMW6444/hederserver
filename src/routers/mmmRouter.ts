@@ -35,28 +35,4 @@ router.get("/getall", async (req, res) => {
   }
 });
 
-router.get("/michael", async (req, res) => {
-  try {
-    const aaaaa = await NNN.find();
-    res.json({ yoad: aaaaa[0].name === "open", dsfds: "gfssdf" });
-  } catch (err) {
-    console.error(err);
-    res.json({ yoad: false, dsfds: "gfssdf" });
-  }
-});
-
-router.post("/open", async (req, res) => {
-  setTimeout(
-    () =>
-      NNN.remove({}, function (err) {
-        console.log("collection removed");
-      }),
-    120000
-  );
-  const what = req.body.what;
-  const s = new NNN({ name: what });
-  await s.save();
-  res.json({ yoad: what, dsfds: "gfssdf" });
-});
-
 export default router;
