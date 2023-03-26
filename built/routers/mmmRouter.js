@@ -9,11 +9,12 @@ const nnn_1 = __importDefault(require("../models/nnn"));
 const router = express_1.default.Router();
 router.post("/addnew", async (req, res) => {
     try {
-        const { name, tags, find } = req.body;
+        const { name, tags, find, place } = req.body;
         const newMemoryResult = new mmm_1.default({
             name,
             tags,
             find,
+            place,
         });
         const savedMemoryResult = await newMemoryResult.save();
         res.json(savedMemoryResult);

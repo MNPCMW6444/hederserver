@@ -8,6 +8,7 @@ const MMMModal = new mongoose_1.default.Schema({
     name: String,
     tags: String,
     find: String,
+    place: String,
 }, {
     timestamps: true,
 });

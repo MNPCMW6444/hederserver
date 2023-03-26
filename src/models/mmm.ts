@@ -5,6 +5,7 @@ const MMMModal = new mongoose.Schema(
     name: String,
     tags: String,
     find: String,
+    place: String,
   },
   {
     timestamps: true,

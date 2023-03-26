@@ -6,12 +6,13 @@ const router = express.Router();
 
 router.post("/addnew", async (req, res) => {
   try {
-    const { name, tags, find } = req.body;
+    const { name, tags, find, place } = req.body;
 
     const newMemoryResult = new MMM({
       name,
       tags,
       find,
+      place,
     });
     const savedMemoryResult = await newMemoryResult.save();
     res.json(savedMemoryResult);
