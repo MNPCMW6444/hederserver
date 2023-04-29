@@ -39,7 +39,7 @@ app.get("/michael", async (req, res) => {
     try {
         const aaaaa = await nnn_1.default.find();
         res.json({
-            yoad: aaaaa[0].name === "open" ? "open" : "close",
+            yoad: aaaaa[0]?.name ? "open" : "close",
             dsfds: "gfssdf",
         });
     }
