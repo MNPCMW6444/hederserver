@@ -48,7 +48,10 @@ app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));
 app.get("/michael", async (req, res) => {
   try {
     const aaaaa = await NNN.find();
-    res.json({ yoad: aaaaa[0].name === "open", dsfds: "gfssdf" });
+    res.json({
+      yoad: aaaaa[0].name === "open" ? "open" : "close",
+      dsfds: "gfssdf",
+    });
   } catch (err) {
     console.error(err);
     res.json({ yoad: false, dsfds: "gfssdf" });
