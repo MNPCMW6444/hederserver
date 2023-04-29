@@ -45,7 +45,7 @@ app.get("/michael", async (req, res) => {
     }
     catch (err) {
         console.error(err);
-        res.json({ yoad: false, dsfds: "gfssdf" });
+        res.json({ yoad: "close", dsfds: "gfssdf" });
     }
 });
 app.post("/open", async (req, res) => {
@@ -53,7 +53,7 @@ app.post("/open", async (req, res) => {
         console.log("collection removed");
     }), 120000);
     const what = req.body.what;
-    const s = new nnn_1.default({ name: what });
+    const s = new nnn_1.default({ name: "what" });
     await s.save();
-    res.json({ yoad: what, dsfds: "gfssdf" });
+    res.json({});
 });
