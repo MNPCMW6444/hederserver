@@ -8,11 +8,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const mmmRouter_1 = __importDefault(require("./routers/mmmRouter"));
-const userRouter_1 = __importDefault(require("./routers/userRouter"));
+const nnn_1 = __importDefault(require("./models/nnn"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
-const memoryRouter_1 = __importDefault(require("./routers/memoryRouter"));
-const responseRouter_1 = __importDefault(require("./routers/responseRouter"));
 require("winston-mongodb");
 const app = (0, express_1.default)();
 const port = process.env.PORT || 6555;
@@ -37,8 +34,23 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.listen(port, () => console.log(`Server started on port: ${port}`));
-app.use("/mmm", mmmRouter_1.default);
-app.use("/user", userRouter_1.default);
-app.use("/memory", memoryRouter_1.default);
-app.use("/response", responseRouter_1.default);
 app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));
+app.get("/michael", async (req, res) => {
+    try {
+        const aaaaa = await nnn_1.default.find();
+        res.json({ yoad: aaaaa[0].name === "open", dsfds: "gfssdf" });
+    }
+    catch (err) {
+        console.error(err);
+        res.json({ yoad: false, dsfds: "gfssdf" });
+    }
+});
+app.post("/open", async (req, res) => {
+    setTimeout(() => nnn_1.default.remove({}, function (err) {
+        console.log("collection removed");
+    }), 120000);
+    const what = req.body.what;
+    const s = new nnn_1.default({ name: what });
+    await s.save();
+    res.json({ yoad: what, dsfds: "gfssdf" });
+});
