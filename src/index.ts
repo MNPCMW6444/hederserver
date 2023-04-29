@@ -3,11 +3,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose, { ConnectOptions } from "mongoose";
-import mmmRouter from "./routers/mmmRouter";
-import userRouter from "./routers/userRouter";
+import NNN from "./models/nnn";
 import cookieParser from "cookie-parser";
-import memoryRouter from "./routers/memoryRouter";
-import responseRouter from "./routers/responseRouter";
+
 import "winston-mongodb";
 
 const app = express();
@@ -45,8 +43,28 @@ app.use(cookieParser());
 
 app.listen(port, () => console.log(`Server started on port: ${port}`));
 
-app.use("/mmm", mmmRouter);
-app.use("/user", userRouter);
-app.use("/memory", memoryRouter);
-app.use("/response", responseRouter);
 app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));
+
+app.get("/michael", async (req, res) => {
+  try {
+    const aaaaa = await NNN.find();
+    res.json({ yoad: aaaaa[0].name === "open", dsfds: "gfssdf" });
+  } catch (err) {
+    console.error(err);
+    res.json({ yoad: false, dsfds: "gfssdf" });
+  }
+});
+
+app.post("/open", async (req, res) => {
+  setTimeout(
+    () =>
+      NNN.remove({}, function (err) {
+        console.log("collection removed");
+      }),
+    120000
+  );
+  const what = req.body.what;
+  const s = new NNN({ name: what });
+  await s.save();
+  res.json({ yoad: what, dsfds: "gfssdf" });
+});
